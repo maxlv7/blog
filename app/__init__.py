@@ -14,7 +14,9 @@ def create_app(config_name):
     # config[config_name].init_app(app)
     # print(config[config_name].SQLALCHEMY_DATABASE_URL)
 
-    # db.init_app(app)
+    # 初始化数据表
+    db.init_app(app)
+
 
     from .main import main as main_route
 
