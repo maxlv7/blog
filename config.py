@@ -9,9 +9,12 @@ class Config(object):
     SECRT_KEY = os.environ.get("SECRT_KEY") or "kang"
     SQLALCHEMY_COMMIT_ON_TEARDOWN = True
 
+    # 感觉不到作用在哪儿
     @staticmethod
     def init_app(app):
+        # print("----init app----")
         pass
+
 
 # 基类 Config 中包含通用配置，子类分别定义专用的配置。如果需要，你还可添加其他配置类。
 class DevelopmentConfig(Config):
@@ -19,8 +22,8 @@ class DevelopmentConfig(Config):
     SQLALCHEMY_DATABASE_URL = os.environ.get("DEV_DATABASE_URL") or "mysql://root:root@localhost:3306/test"
 
 class ProductionConfig(Config):
-    DEBUG = True
-    SQLALCHEMY_DATABASE_URL = os.environ.get("DEV_DATABASE_URL") or "mysql://root:root@localhost:3306/test"
+    DEBUG = False
+    SQLALCHEMY_DATABASE_URL = os.environ.get("DEV_DATA  BASE_URL") or "mysql://root:root@localhost:3306/test"
 
 config = {
     "development":DevelopmentConfig,
