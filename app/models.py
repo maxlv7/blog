@@ -7,7 +7,7 @@ class User(db.Model):
     __tablename__ = "users"
 
     id = db.Column(db.Integer,primary_key=True)
-    username = db.Column(db.String(64),unique=True)
+    name = db.Column(db.String(64),unique=True)
     email = db.Column(db.String(64),unique=True)
     password = db.Column(db.String(128))
     admin = db.Column(db.Boolean,default=False)
@@ -22,4 +22,5 @@ class Blog():
     name = db.Column(db.String(64))
     summary = db.Column(db.Text)
     content = db.Column(db.Text)
+    create_at = db.Column(db.DateTime,default=datetime.utcnow())
 
