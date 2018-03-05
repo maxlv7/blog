@@ -20,13 +20,14 @@ def create_app(config_name):
     # 初始化数据表
     db.init_app(app)
 
-    with app.app_context():
-        db.drop_all()
-        db.create_all()
 
     from .main import main as main_route
 
     app.register_blueprint(main_route)
+
+    from .API import API as api_route
+
+    app.register_blueprint(api_route)
 
     return app
 

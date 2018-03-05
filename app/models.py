@@ -13,7 +13,8 @@ class User(db.Model):
     admin = db.Column(db.Boolean,default=False)
     creat_at = db.Column(db.DateTime,default=datetime.utcnow())
 
-class Blog():
+
+class Blog(db.Model):
     __tablename__ = "blogs"
 
     id = db.Column(db.Integer,primary_key=True)
