@@ -1,7 +1,6 @@
 from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from config import config
-from datetime import datetime
 
 '''
 各种包的初始化
@@ -20,6 +19,7 @@ def create_app(config_name):
     # 初始化数据表
     db.init_app(app)
 
+    # 注册蓝图
 
     from .main import main as main_route
 
