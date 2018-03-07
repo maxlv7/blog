@@ -21,13 +21,19 @@ def create_app(config_name):
 
     # 注册蓝图
 
-    from .main import main as main_route
-
-    app.register_blueprint(main_route)
 
     from .API import API as api_route
 
     app.register_blueprint(api_route)
+
+
+    from .auth import auth as auth_route
+
+    app.register_blueprint(auth_route)
+
+    from .main import main as main_route
+
+    app.register_blueprint(main_route)
 
     return app
 
