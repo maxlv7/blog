@@ -1,9 +1,10 @@
 # 定义数据表的原型
 from datetime import datetime
-from . import db
+from flask_login import UserMixin
+from . import db,login_manager
 
 
-class User(db.Model):
+class User(UserMixin,db.Model):
     __tablename__ = "users"
 
     id = db.Column(db.Integer,primary_key=True)
@@ -24,4 +25,10 @@ class Blog(db.Model):
     summary = db.Column(db.Text)
     content = db.Column(db.Text)
     create_at = db.Column(db.DateTime,default=datetime.utcnow())
+
+# 加载用户的回调函数
+@login_manager.user_loader
+def load_user(user_id):
+    # s = User.query.get(user_id)
+    return User.query.get(user_id)
 
