@@ -31,7 +31,7 @@ def index():
     return render_template("sign in and up.html",login=form_login,reg=form_register)
 
 
-@auth.route('/logout')
+@auth.route('/logout',methods=["GET"])
 @login_required
 def logout():
     logout_user()
