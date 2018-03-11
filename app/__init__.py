@@ -2,6 +2,7 @@ from flask import Flask
 from flask_sqlalchemy import SQLAlchemy
 from flask_login import LoginManager
 from config import config
+from flask_pagedown import PageDown
 
 '''
 各种包的初始化
@@ -12,6 +13,7 @@ login_manager.session_protection = "strong"
 login_manager.login_view = "auth.index"
 login_manager.login_message = "请登录后访问！"
 db = SQLAlchemy()
+pagedown = PageDown()
 
 
 def create_app(config_name):
@@ -25,6 +27,9 @@ def create_app(config_name):
 
     # 初始化flask_login
     login_manager.init_app(app)
+
+    #初始化flask_pagedown
+    pagedown.init_app(app)
 
     # 注册蓝图
 
@@ -41,6 +46,10 @@ def create_app(config_name):
     from .main import main as main_route
 
     app.register_blueprint(main_route)
+
+    from .admin import admin as admin_route
+
+    app.register_blueprint(admin_route)
 
     return app
 
