@@ -1,0 +1,120 @@
+{% extends "base.html" %}
+
+{% block title %}我的博客{% endblock %}
+
+{% block head%}
+    {{ super() }}
+{% endblock %}
+
+{% block topbar%}
+    {{ super() }}
+{% endblock %}
+
+{% block leftbar%}
+    {{ super() }}
+{% endblock %}
+
+{% block banner%}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid main-container" id="main-container">
+    <div class="row">
+        <div class="col-md-12 top-title">
+            <h2 class="page-title">
+                博客文章
+            </h2>
+        </div>
+    </div>
+
+        {#  从数据库中读取所有的博客  #}
+        <div class="row">
+            {% for blog in blogs %}
+                <div class="col-md-12 post-container">
+                    <h2 class="post-title">
+                        <a href={{ url_for("main.blog_content",id=blog.id) }} title="">{{ blog.name }}</a>
+                    </h2>
+                    <div class="meta-box">
+                    <span class="m-post-date">
+                      <i class="fa fa-calendar-o">
+                          {{ blog.create_at }}
+                      </i>
+                    </span>
+                    <span class="comments-link">
+                      <a href="" class="ds-thread-count" data-thread-key="9500" title="Comment on !">
+                          <i class="fa fa-comments-o">
+                          </i>
+                          留言
+                      </a>
+                    </span>
+                    </div>
+                    <div class="post-content">
+                        <p>
+                            {{ blog.summary }}
+{#                            <a href="">#}
+{#                                这是一个连接#}
+{#                            </a>#}
+                        </p>
+                    </div>
+                    <div class="meta-box">
+                    <span class="cat-links">
+                      <i class="fa fa-navicon">
+                      </i>
+                      <b>
+                          分类:
+                      </b>
+                      <a href="#">
+                          测试
+                      </a>
+                    </span>
+                    <span class="tag-links">
+                      <i class="fa fa-tags">
+                      </i>
+                      <b>
+                          标签:
+                      </b>
+                      <a href="#" rel="tag">
+                          异步
+                      </a>
+                    </span>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+
+        {#  从数据库中读取所有的博客  #}
+
+        <!--分页进入第二页，一页多少可分配-->
+    <div class="row post-pagination">
+        <div class="col-md-12">
+            <p>
+                <a href="" class="btn btn-primary btn-sm">
+              <span class="glyphicon glyphicon-refresh">
+              </span>
+              <span>
+                浏览之前的文章
+              </span>
+                </a>
+            </p>
+        </div>
+    </div>
+    <!--评论内容-->
+    <div class="row page-comments-container">
+        <div class="col-md-12">
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+    </div>
+      {% block footer %}
+       {{ super() }}
+   {% endblock %}
+</div>
+    <script src="assets/js/bootstrap.min.js"></script>
+{% endblock %}
+
+{% block banner_script %}
+    {{ super() }}
+{% endblock %}

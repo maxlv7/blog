@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}主页{% endblock %}
+
+{% block head%}
+    {{ super() }}
+{% endblock %}
+
+{% block topbar%}
+    {{ super() }}
+{% endblock %}
+
+{% block leftbar%}
+    {{ super() }}
+{% endblock %}
+
+{% block banner%}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid main-container" id="main-container">
+        <div class="row top-title">
+            <div class="col-md-12">
+                <h1 class="page-title">
+                    最新文章
+                </h1>
+            </div>
+        </div>
+    <!--main Start-->
+
+    {% for blog in blogs %}
+
+    <div class="row">
+        <div class="col-md-12 post-container">
+            <h2 class="post-title">
+                <a href={{ url_for("main.blog_content",id=blog.id) }} title="">{{ blog.name }}</a>
+            </h2>
+            <div class="meta-box">
+            <span class="m-post-date">
+              <i class="fa fa-calendar-o">
+              </i>
+              {{ blog.create_at }}
+            </span>
+            <span class="comments-link">
+              <a href="" class="ds-thread-count" data-thread-key="9500" title="Comment on !">
+                  <i class="fa fa-comments-o">
+                  </i>
+                  留言
+              </a>
+            </span>
+            </div>
+            <div class="post-content">
+                <p>
+                    <a href={{ url_for("main.blog_content",id=blog.id) }}>
+                        {{ blog.summary }}
+                    </a>
+                    </p>
+            </div>
+            <div class="meta-box">
+            <span class="cat-links">
+              <i class="fa fa-navicon">
+              </i>
+              <b>
+                  分类:
+              </b>
+              <a href="topics/life/diary.htm">
+                  测试
+              </a>
+            </span>
+            <span class="tag-links">
+              <i class="fa fa-tags">
+              </i>
+              <b>
+                  标签:
+              </b>
+              <a href="tags/毕业.htm" rel="tag">
+                  异步
+              </a>
+            </span>
+            </div>
+        </div>
+    </div>
+
+    {% endfor %}
+    <!--更多内容-->
+    <div class="row">
+        <div class="col-md-12">
+            <h2 class="page-title">
+                <a href={{ url_for("main.blogs") }} title="">更多内容</a>
+            </h2>
+        </div>
+    </div>
+    <!--跳转至博客页面-->
+    <div class="row">
+        <div class="col-md-12 post-container">
+            <div class="row">
+                <div class="col-md-4">
+                    <a class="btn btn-primary home-browser-more-btn" href={{ url_for("main.blogs") }}>
+                        <span>浏览更多文章</span>
+                    </a>
+                </div>
+                <div class="col-md-8">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--推荐阅读-->
+    <div class="row">
+        <div class="col-md-12 post-container m-recommend-page">
+            <div class="row">
+                <div class="col-md-4">
+                    <a href={{ url_for("main.blogs") }} class="thumbnail">
+                        <img src="assets/img/works.png" alt="作品展示">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href={{ url_for("main.about") }} class="thumbnail">
+                        <img src="assets/img/about.png" alt="路人简介">
+                    </a>
+                </div>
+                <div class="col-md-4">
+                    <a href={{ url_for("main.index") }} class="thumbnail">
+                        <img src="assets/img/book.png" alt="作品推荐">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- 网站底部 -->
+   {% block footer %}
+       {{ super() }}
+   {% endblock %}
+</div>
+{% endblock %}
+
+{% block banner_script %}
+    {{ super() }}
+{% endblock %}

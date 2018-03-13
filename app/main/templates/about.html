@@ -1,0 +1,139 @@
+{% extends "base.html" %}
+
+{% block title %}关于我{% endblock %}
+
+{% block head%}
+    {{ super() }}
+{% endblock %}
+
+{% block topbar%}
+    {{ super() }}
+{% endblock %}
+
+{% block leftbar%}
+    {{ super() }}
+{% endblock %}
+
+{% block banner%}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+    <div class="container-fluid main-container" id="main-container">
+    <div class="row top-title">
+        <div class="col-md-12">
+            <h1 class="page-title">
+                关于我
+            </h1>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 post-container">
+            <h2 class="post-title">
+                <a href="#" rel="bookmark">
+                    关于我
+                </a>
+            </h2>
+            <div class="post-content">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="thumbnail">
+                            <a href="javascript:;">
+                                <img title="关于我 @maxlv7" src="assets/img/about.png" alt="关于我"
+                                />
+                            </a>
+                            <div class="caption">
+                                <h3>
+                                    个人概况
+                                </h3>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel panel-default" id="simple-intro">
+                    <div class="panel-body">
+                        <h3>
+                            简单概述
+                        </h3>
+                        <p>
+                            学程序是因为有梦想，希望自己以后能够和小伙伴们创建一家属于自己的互联网公司。对前端(FrontEnd) &amp; 交互体验(User Experience)/后端(Backend)等相关技术十分感兴趣，喜欢变着花样（寻求最优方案）去完成想要完成的事情。
+                        </p>
+                        <p>
+                            我的联系方式：
+                        </p>
+                        <blockquote class="contact-list" id="about-list">
+                            <ul>
+                                <li>
+                                    电子邮箱:
+                                    <kbd>
+                                        admin#maxlv.org(#换成@)
+                                    </kbd>
+                                </li>
+                                <li>
+                                    腾讯QQ:
+                                    <kbd>
+                                        @75497438
+                                    </kbd>
+                                </li>
+                                <li>
+                                    新浪微博:
+                                    <kbd>
+                                        weibo.com/maxlv7
+
+                                    </kbd>
+                                </li>
+
+                                <li>
+                                    我的GIT:
+                                    <kbd>
+                                        github.com/maxlv7
+                                    </kbd>
+                                </li>
+                            </ul>
+                        </blockquote>
+                    </div>
+                </div>
+                <div class="panel panel-default">
+                    <div class="panel-body clearfix">
+                        <h3>
+                            往事如烟
+                        </h3>
+                        <p>
+                            因为要刻意做比较，有些往事就会被追忆，甚至找回。生活的艰辛，事业的跌宕，无疑应该是一种无形的财富，支撑着你坚韧前行。哦，如烟的往事……
+                        </p>
+
+                        <footer class="pull-right">
+                            二零一八年三月落笔于
+                            <cite title="绵阳">
+                                绵阳
+                            </cite>
+                        </footer>
+                    </div>
+                </div>
+            </div>
+            <div class="meta-box">
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+        </div>
+    </div>
+        {% block footer %}
+            {{ super() }}
+        {% endblock %}
+{#    <footer>#}
+{#        <!--版权信息-->#}
+{#        <div class="copyright">#}
+{#            Copyright blog.maxlv.org ©2018 All rights reserved  &nbsp;&nbsp;#}
+{#            <a href="www.ybsat.com">#}
+{#                Theme leaves by Ybsat#}
+{#            </a>#}
+{#        </div>#}
+{#    </footer>#}
+</div>
+{% endblock %}
+
+{% block banner_script %}
+    {{ super() }}
+{% endblock %}
