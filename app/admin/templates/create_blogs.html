@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<form method="post">
+    {{ form.name.label() }}
+    {{ form.name }}
+<br>
+    {{ form.summary.label() }}
+    {{ form.summary }}
+<br>
+    {{ form.content.label() }}
+    {{ form.content(cols=140,rows=10) }}
+    <br>
+    {{ pagedown.include_pagedown() }}
+<br>
+    {{ form.submit }}
+</form>
+
+
+{{ blog.content_html | safe }}
+
+
+</body>
+</html>
