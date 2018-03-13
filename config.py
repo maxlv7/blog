@@ -26,7 +26,7 @@ class DevelopmentConfig(Config):
 
 class ProductionConfig(Config):
     DEBUG = False
-    SQLALCHEMY_DATABASE_URI = os.environ.get("DEV_DATA  BASE_URL") or "mysql://root:root@localhost:3306/test"
+    SQLALCHEMY_DATABASE_URI = os.environ.get("DEV_DATA  BASE_URL") or "mysql://root:root@localhost:3306/Aiy_blog"
 
 config = {
     "development":DevelopmentConfig,
