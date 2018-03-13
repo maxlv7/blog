@@ -4,11 +4,16 @@ from . import auth
 from .. import db
 from ..models import User
 from .forms import LoginForm,RegistrationForm
+from ..decorators import admin_required
 
 
 # 登录和注册
 @auth.route('/log',methods=["GET","POST"])
 def index():
+
+    if current_user.is_authenticated:
+        return redirect(url_for("main.index"))
+
     form_login = LoginForm()
     form_register = RegistrationForm()
 
@@ -28,6 +33,7 @@ def index():
         db.session.commit()
         flash("成功注册，请登录！")
         return redirect(url_for("auth.index"))
+
     return render_template("sign in and up.html",login=form_login,reg=form_register)
 
 
@@ -45,3 +51,11 @@ def logout():
 # @login_required
 # def test1():
 #     return "success!"
+
+# 测试admin_required
+
+# @auth.route('/test_admin')
+# @login_required
+# @admin_required
+# def is_admin():
+#     return "ok"
