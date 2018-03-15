@@ -9,6 +9,7 @@ from ..decorators import admin_required
 
 # 登录和注册
 @auth.route('/log',methods=["GET","POST"])
+@auth.route('/',methods=["GET","POST"])
 def index():
 
     if current_user.is_authenticated:
@@ -17,17 +18,16 @@ def index():
     form_login = LoginForm()
     form_register = RegistrationForm()
 
-    if form_login.submit_log.data and form_login.validate:
+    if form_login.submit_log.data and form_login.validate():
         user_login = User.query.filter_by(email=form_login.email.data).first()
 
         if user_login is not None and user_login.password == form_login.password.data:
-            # flash("成功!点击跳转！")
             login_user(user_login)
             return redirect(url_for("main.index"))
         else:
             flash("邮箱或者密码错误!")
 
-    if form_register.submit_reg.data and form_register.validate:
+    if form_register.submit_reg.data and form_register.validate():
         user = User(name=form_register.username.data,email=form_register.email.data,password=form_register.password.data)
         db.session.add(user)
         db.session.commit()

@@ -46,8 +46,9 @@
             
 			<div class="login_form">
 				<form action="" method="post" name="loginform" accept-charset="utf-8" id="login_form" class="loginForm" >
-                    <input type="hidden" name="did" value="0"/>
-                    <input type="hidden" name="to" value="log"/>
+{#                    <input type="hidden" name="did" value="0"/>#}
+{#                    <input type="hidden" name="to" value="log"/>#}
+                    {{  login.csrf_token  }}
                 <div class="uinArea" id="uinArea">
                     {{ login.email.label(class="input-tips") }}
                 <div class="inputOuter" id="uArea">
@@ -86,6 +87,7 @@
         <form action="" method="post" id="regUser" name="form2" accept-charset="utf-8"  >
 {#	      <input type="hidden" name="to" value="reg"/>#}
 {#            <input type="hidden" name="did" value="0"/>#}
+            {{  reg.csrf_token  }}
         <ul class="reg_form" id="reg-ul">
         		<div id="userCue" class="cue">快速注册请注意格式</div>
                 <li>
