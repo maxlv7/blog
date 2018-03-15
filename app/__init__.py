@@ -9,7 +9,7 @@ from flask_pagedown import PageDown
 '''
 
 login_manager = LoginManager()
-login_manager.session_protection = "strong"
+login_manager.session_protection = "basic"
 login_manager.login_view = "auth.index"
 login_manager.login_message = "请登录后访问！"
 db = SQLAlchemy()
