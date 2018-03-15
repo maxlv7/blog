@@ -1,0 +1,71 @@
+{% extends "admin_base.html" %}
+
+{% block topbar %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<h3>
+				用户管理：
+			</h3>
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>
+							ID
+						</th>
+						<th>
+							电子邮件
+						</th>
+						<th>
+							创建时间
+						</th>
+						<th>
+							是否管理员
+						</th>
+                        <th>
+							操作
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+                {% for u in users %}
+					<tr class="">
+						<td>
+							{{ u.id }}
+						</td>
+						<td>
+							{{ u.email }}
+						</td>
+						<td>
+							{{ u.create_at }}
+						</td>
+						<td>
+							{{ u.admin }}
+						</td>
+                        <td>
+                            {% if u.admin %}
+                            无法删除
+                            {% else %}
+                                <a href={{ url_for("admin.del_user",id=u.id) }}>删除</a>
+                            {% endif %}
+                        </td>
+					</tr>
+                {% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}
+
+
+{% block footbar %}
+    {{ super() }}
+{% endblock %}
+
+
+{% block js %}
+    {{ super() }}
+{% endblock %}

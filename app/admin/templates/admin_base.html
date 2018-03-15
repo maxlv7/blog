@@ -28,10 +28,10 @@
 							 <a rel="nofollow" href="#" class="dropdown-toggle" data-toggle="dropdown">管理<strong class="caret"></strong></a>
 							<ul class="dropdown-menu">
 								<li>
-									<a rel="nofollow" href="#">用户</a>
+									<a rel="nofollow" href={{ url_for("admin.manage_users") }}>用户</a>
 								</li>
 								<li>
-									<a rel="nofollow" href="#">文章</a>
+									<a rel="nofollow" href={{ url_for("admin.manage_blogs") }}>文章</a>
 								</li>
 								<li>
 									<a rel="nofollow" href="#">评论</a>
@@ -107,10 +107,10 @@
 		<div class="col-md-12 column">
 			<div id="footer">
 				<div class="footerNav">
-					 <a rel="nofollow" href="http://www.layoutit.cn">关于我们</a> | <a rel="nofollow" href="http://www.layoutit.cn">服务条款</a> |
+{#					 <a rel="nofollow" href="#">关于我们</a>#}
 				</div>
 				<div class="copyRight">
-					Copyright ©2018 maxlv.org 版权所有
+                    <h1>Copyright ©2018 blog.maxlv.org 版权所有</h1>
 				</div>
 			</div>
 
