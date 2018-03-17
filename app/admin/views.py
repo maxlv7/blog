@@ -1,7 +1,7 @@
 from flask import render_template,redirect,url_for,flash
 from . import admin
 from .forms import BlogForm
-from ..models import Blog,User
+from ..models import Blog,User,Comment
 from .. import db
 from ..decorators import admin_required
 from flask_login import login_required,current_user
@@ -13,7 +13,8 @@ from flask_login import login_required,current_user
 @admin_required
 def index():
     blog_counts = len(Blog.query.all())
-    return render_template("admin_index.html",blog_counts=blog_counts)
+    comment_counts = len(Comment.query.all())
+    return render_template("admin_index.html",blog_counts=blog_counts,comment_counts=comment_counts)
 
 
 # 创建文章
@@ -91,3 +92,26 @@ def del_blog(id):
 
     return redirect(url_for("admin.manage_blogs"))
 
+# 管理评论
+@admin.route('/manage_comments')
+@login_required
+@admin_required
+def manage_comments():
+
+    comments = Comment.query.all()
+
+    return render_template("admin_manage_comments.html",comments=comments)
+
+# 删除评论
+@admin.route('/del_comment/<int:id>',methods=["GET","POST"])
+@login_required
+@admin_required
+def del_comment(id):
+
+    comment = Comment.query.filter_by(id=id).first_or_404()
+
+    db.session.delete(comment)
+
+    db.session.commit()
+
+    return redirect(url_for("admin.manage_comments"))
