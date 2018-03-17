@@ -18,15 +18,17 @@ def index():
     form_login = LoginForm()
     form_register = RegistrationForm()
 
+    # 登录
     if form_login.submit_log.data and form_login.validate():
         user_login = User.query.filter_by(email=form_login.email.data).first()
 
-        if user_login is not None and user_login.password == form_login.password.data:
+        if user_login is not None and user_login.password == User.check_hash(form_login.password.data,user_login.email):
             login_user(user_login)
             return redirect(url_for("main.index"))
         else:
             flash("邮箱或者密码错误!")
 
+    # 注册
     if form_register.submit_reg.data and form_register.validate():
         user = User(name=form_register.username.data,email=form_register.email.data,password=form_register.password.data)
         db.session.add(user)
@@ -37,6 +39,7 @@ def index():
     return render_template("sign in and up.html",login=form_login,reg=form_register)
 
 
+# 登出
 @auth.route('/logout',methods=["GET"])
 @login_required
 def logout():
