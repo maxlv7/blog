@@ -244,6 +244,128 @@
 <!--End banner img-->
 
 {% block content %}
+
+    {% block comments %}
+
+            {% for com in comm %}
+        <div class="row">
+        <div class="col-md-12 post-container">
+            <div class="post-content">
+                <div class="ds-thread" data-thread-key="750" data-author-key="1" data-title="给我留言"
+                     data-url="contact.php">
+                </div>
+                <div id="ds-ssr">
+                    <ol id="commentlist">
+                        <li class="comment even thread-even depth-1" id="li-comment-11325">
+                            <article id="comment-11325" class="comment">
+                                <footer class="comment-meta">
+                                    <cite class="comment-author vcard">
+                      <span class="fn">
+                        <a href=""
+                           rel='external nofollow' class='url'>
+                            {{ com.user_name }}
+                        </a>
+                      </span>
+                                        on
+                                        <a rel="nofollow" href="">
+                                            <time pubdate datetime="2015-01-06T00:15:56+00:00">
+                                                 {{ com.create_at }}
+                                            </time>
+                                        </a>
+                      <span class="says">
+                        said:
+                      </span>
+                                    </cite>
+                                </footer>
+                                <div class="comment-content">
+                                    <p>
+                                        说：{{ com.content }}
+                                    </p>
+                                </div>
+                            </article>
+                        </li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </div>
+            {% endfor %}
+
+        {% if current_user.is_authenticated %}
+        <div class="row">
+        <div class="col-md-12 post-container">
+            <div class="post-content">
+            <form method="post" action="" id="form1" class="contact-form">
+                {{ comment.csrf_token }}
+                <div>
+          <span>
+            <label>
+                姓名(必填)
+            </label>
+          </span>
+          <span>
+{#            <input name="contact_name" type="text" class="textbox">#}
+
+              {{ comment.user_name(type="text",class="textbox",value= current_user.name )  }}
+          </span>
+                    </div>
+                    <div>
+          <span>
+            <label>
+                标题
+            </label>
+          </span>
+          <span>
+{#            <input name="contact_title" type="text" class="textbox">#}
+              {{ comment.label(class="textbox") }}
+          </span>
+                    </div>
+                    <div>
+          <span>
+            <label>
+                邮箱(必填)
+            </label>
+          </span>
+          <span>
+{#            <input name="contact_email" type="email" class="textbox">#}
+              {{ comment.email(value=current_user.email) }}
+          </span>
+                    </div>
+                    <div>
+          <span>
+            <label>
+                内容(必填)
+            </label>
+          </span>
+          <span>
+{#            <textarea name="contact_con" class="textbox">#}
+{#            </textarea>#}
+              {{ comment.content(class="textbox") }}
+          </span>
+                    </div>
+                    <div>
+          <span>
+{#            <input type="submit" value="提交" name="tijiao">#}
+              {{ comment.submit(value="提交") }}
+          </span>
+                    </div>
+                </form>
+            </div>
+            <div class="meta-box">
+            </div>
+        </div>
+    </div>
+        {% else %}
+            <div class="row">
+            <div class="col-md-12 post-container">
+                   <h2>想评论？请先<a href={{ url_for("auth.index") }}>登录</a> </h2>
+            </div>
+
+            </div>
+
+        {% endif %}
+    {% endblock %}
+
     {% block footer %}
         <footer>
         <!--版权信息-->
@@ -258,6 +380,7 @@
             </div>
         </footer>
     {% endblock %}
+
 {% endblock %}
 
 

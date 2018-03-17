@@ -119,20 +119,20 @@
         <div class="col-md-4">
         </div>
     </div>
-        {% block footer %}
-            {{ super() }}
-        {% endblock %}
-{#    <footer>#}
-{#        <!--版权信息-->#}
-{#        <div class="copyright">#}
-{#            Copyright blog.maxlv.org ©2018 All rights reserved  &nbsp;&nbsp;#}
-{#            <a href="www.ybsat.com">#}
-{#                Theme leaves by Ybsat#}
-{#            </a>#}
-{#        </div>#}
-{#    </footer>#}
+
+    {% block comments %}
+{#        {{ super() }}#}
+    {% endblock %}
+
+    {% block footer %}
+        {{ super() }}
+    {% endblock %}
+
 </div>
+
 {% endblock %}
+
+
 
 {% block banner_script %}
     {{ super() }}

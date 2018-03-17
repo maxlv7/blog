@@ -9,7 +9,7 @@
     <meta name="viewport" content="maximum-scale=1.0,width=device-width,initial-scale=1.0,user-scalable=no">
     <meta name="keywords" content="">
     <meta name="description" content="">
-    <title>qq</title>
+    <title>我的文章-{{ blog.name }}</title>
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../assets/css/style.css" rel="stylesheet" />
     <link href="../assets/css/nprogress.css" rel="stylesheet" />
@@ -237,9 +237,14 @@
             </div>
         </div>
     </div>
-       {% block footer %}
+
+        {% block comments %}
             {{ super() }}
-       {% endblock %}
+        {% endblock %}
+
+        {% block footer %}
+            {{ super() }}
+        {% endblock %}
     </div>
 <script src="../assets/js/bootstrap.min.js"></script>
 {#<script src="assets/APlayer/dist/APlayer.min.js"></script>#}
