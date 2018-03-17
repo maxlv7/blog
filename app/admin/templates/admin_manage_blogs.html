@@ -1,0 +1,63 @@
+{% extends "admin_base.html" %}
+
+{% block topbar %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<h3>
+				文章管理：
+			</h3>
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>
+							ID
+						</th>
+						<th>
+							博客名称
+						</th>
+						<th>
+							创建时间
+						</th>
+                        <th>
+							操作
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+                {% for blog in blogs %}
+					<tr class="">
+						<td>
+							{{ blog.id }}
+						</td>
+						<td>
+							{{ blog.name }}
+						</td>
+						<td>
+							{{ blog.create_at }}
+						</td>
+
+                        <td>
+                            修改|<a href={{ url_for("admin.del_blog",id=blog.id) }}>删除</a>
+{#                            <a href={{ url_for("admin.del_user",id=u.id) }}>删除</a>#}
+                        </td>
+					</tr>
+                {% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}
+
+
+{% block footbar %}
+    {{ super() }}
+{% endblock %}
+
+
+{% block js %}
+    {{ super() }}
+{% endblock %}
