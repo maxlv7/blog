@@ -36,6 +36,14 @@ class Blog(db.Model):
     content = db.Column(db.Text)
     create_at = db.Column(db.DateTime,default=datetime.utcnow())
 
+class Comments(db.Model):
+    id = db.Column(db.Integer,primary_key=True,unique=True)
+    user_id = db.Column(db.Integer)
+    user_name = db.Column(db.String(64))
+    email = db.Column(db.String(64))
+    content = db.Column(db.Text)
+    create_at = db.Column(db.DateTime,default=datetime.now())
+
 db.init_app(app)
 
 with app.app_context():
