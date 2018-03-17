@@ -5,7 +5,12 @@
 {% endblock %}
 
 {% block content %}
+    {% for mes in get_flashed_messages() %}
+    <script>alert("{{ mes }}")</script>
+    {% endfor %}
+
 <form method="post">
+
     {{ form.csrf_token  }}
     {{ form.name.label() }}
     {{ form.name }}

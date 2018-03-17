@@ -34,7 +34,7 @@
 									<a rel="nofollow" href={{ url_for("admin.manage_blogs") }}>文章</a>
 								</li>
 								<li>
-									<a rel="nofollow" href="#">评论</a>
+									<a rel="nofollow" href={{ url_for("admin.manage_comments") }}>评论</a>
 								</li>
 
 							</ul>
@@ -88,7 +88,7 @@
 	<div class="row clearfix">
 		<div class="col-md-12 column">
 			<h1 class="nofollow">
-				目前有 {{ blog_counts }} 篇文章, 并有 0 条关于你的评论.
+				目前有 {{ blog_counts }} 篇文章, 并有 {{ comment_counts }} 条关于你的评论.
 点击下面的链接快速开始:
 			</h1>
 			<br>
