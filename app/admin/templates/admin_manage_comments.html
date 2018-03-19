@@ -1,0 +1,68 @@
+{% extends "admin_base.html" %}
+
+{% block topbar %}
+    {{ super() }}
+{% endblock %}
+
+{% block content %}
+	<div class="row clearfix">
+		<div class="col-md-12 column">
+			<h3>
+				评论管理：
+			</h3>
+			<table class="table table-bordered table-hover">
+				<thead>
+					<tr>
+						<th>
+							ID
+						</th>
+						<th>
+							用户名
+						</th>
+                        <th>
+							文章ID
+						</th>
+						<th>
+							创建时间
+						</th>
+                        <th>
+							操作
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+                {% for comment in comments %}
+					<tr class="">
+						<td>
+							{{ comment.id }}
+						</td>
+						<td>
+							{{ comment.user_name }}
+						</td>
+						<td>
+							<a href={{ url_for("main.blog_content",id=comment.blog_id) }}> {{ comment.blog_id }}</a>
+						</td>
+                        <td>
+                            {{ comment.user_name }} 发表于 | {{ comment.create_at }}
+                        </td>
+                        <td>
+                            <a href={{ url_for("admin.del_comment",id= comment.id ) }}>删除</a>
+{#                            <a href={{ url_for("admin.del_comment",id=comment.blog_id) }}>删除</a>#}
+                        </td>
+					</tr>
+                {% endfor %}
+				</tbody>
+			</table>
+		</div>
+	</div>
+{% endblock %}
+
+
+{% block footbar %}
+    {{ super() }}
+{% endblock %}
+
+
+{% block js %}
+    {{ super() }}
+{% endblock %}
