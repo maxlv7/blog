@@ -64,11 +64,6 @@
                     </a>
                 </li>
                 <li>
-                    <a href={{ url_for("main.contact") }}>
-                        联系
-                    </a>
-                </li>
-                <li>
                    {% if current_user.is_authenticated %}
                        <a href="">
                          您好: {{ current_user.name }}

@@ -22,10 +22,6 @@ def about():
 
     return render_template("about.html")
 
-@main.route('/contact',methods=['GET'])
-def contact():
-
-    return render_template("contact.html")
 
 @main.route('/content/<int:id>',methods=['GET','POST'])
 def blog_content(id):
