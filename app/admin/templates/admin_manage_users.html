@@ -43,13 +43,18 @@
 							{{ u.create_at }}
 						</td>
 						<td>
+                            {% if u.admin %}
 							{{ u.admin }}
-						</td>
+                            {% else %}
+                            <a href={{ url_for("admin.del_user",id=u.id) }}>False | 设为管理员</a>
+						    {% endif %}
+                        </td>
                         <td>
                             {% if u.admin %}
                             无法删除
                             {% else %}
-                                <a href={{ url_for("admin.del_user",id=u.id) }}>删除</a>
+                                <a href={{ url_for("admin.del_user",id=u.id) }}>删除 | </a>
+
                             {% endif %}
                         </td>
 					</tr>
