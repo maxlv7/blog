@@ -46,7 +46,7 @@
                             {% if u.admin %}
 							{{ u.admin }}
                             {% else %}
-                            <a href={{ url_for("admin.del_user",id=u.id) }}>False | 设为管理员</a>
+                            <a href={{ url_for("admin.set_admin_user",id=u.id) }}>False | 设为管理员</a>
 						    {% endif %}
                         </td>
                         <td>

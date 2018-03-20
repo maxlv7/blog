@@ -115,3 +115,17 @@ def del_comment(id):
     db.session.commit()
 
     return redirect(url_for("admin.manage_comments"))
+
+# 设置管理员
+@admin.route('/set_admin_user/<int:id>',methods=["GET","POST"])
+@login_required
+@admin_required
+def set_admin_user(id):
+
+    user = User.query.filter_by(id=id).first_or_404()
+
+    user.admin = 1
+
+    db.session.commit()
+
+    return redirect(url_for("admin.manage_users"))
