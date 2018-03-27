@@ -68,9 +68,13 @@ class Blog(db.Model):
             'a','abbr','acronym','b','blockquote','code','em','i','li','ol','pre','strong','ul',
             'h1','h2','h3','p'
         ]
-        # exts = ['markdown.extensions.extra', 'markdown.extensions.codehilite', 'markdown.extensions.tables',
-        #         'markdown.extensions.toc']
-        target.content_html = bleach.linkify(bleach.clean(markdown(value,output_format='html'),tags=allow_tags,strip=True))
+        # , extensions = [
+        #     'markdown.extensions.extra',
+        #     'markdown.extensions.codehilite',
+        #     'markdown.extensions.toc',
+        # ]
+        target.content_html = bleach.linkify(bleach.clean(markdown(value),tags=allow_tags,strip=True))
+
 
 db.event.listen(Blog.content,'set',Blog.on_change_content)
 

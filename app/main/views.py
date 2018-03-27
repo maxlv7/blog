@@ -48,6 +48,7 @@ def blog_content(id):
 
 
     blog = Blog.query.filter_by(id=id).first_or_404()
+
     return render_template("content.html",blog=blog,comment=comment,comm=comments)
 
 @main.route('/links',methods=['GET'])

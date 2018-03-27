@@ -12,6 +12,7 @@
     <title>我的文章-{{ blog.name }}</title>
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet" />
     <link href="../assets/css/style.css" rel="stylesheet" />
+
     <link href="../assets/css/nprogress.css" rel="stylesheet" />
     <link rel="stylesheet" href="../assets/css/nivo-slider.css" type="text/css" media="screen" />
     <link rel="stylesheet" href="../assets/css/default.css" type="text/css" media="screen" />
@@ -246,6 +247,7 @@
                     <div class="main-container">
                         <div class="row">
                             <p>
+{#                                <link href="../assets/css/github.css" rel="stylesheet" />#}
                                 {{ blog.content_html | safe }}
                             </p>
                             <div id="player3" class="aplayer"></div>

@@ -8,21 +8,25 @@
     {% for mes in get_flashed_messages() %}
     <script>alert("{{ mes }}")</script>
     {% endfor %}
+{#<script src="{{ url_for('static', filename='ckeditor/ckeditor.js') }}"></script>#}
+
+
+
 
 <form method="post">
 
     {{ form.csrf_token  }}
     {{ form.name.label() }}
     {{ form.name }}
-{#<br>#}
+<br>
     {{ form.summary.label() }}
     {{ form.summary(clos=30,rows=5) }}
-{#<br>#}
+<br>
     {{ form.content.label() }}
-    {{ form.content(cols=100,rows=15) }}
-{#    <br>#}
-{#    {{ pagedown.include_pagedown() }}#}
-{#<br>#}
+    {{ form.content(rows="10", cols="80") }}
+
+
+<br>
     {{ form.submit }}
 </form>
 {% endblock %}

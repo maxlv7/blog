@@ -41,8 +41,8 @@
 						</td>
 
                         <td>
-                            修改|<a href={{ url_for("admin.del_blog",id=blog.id) }}>删除</a>
-{#                            <a href={{ url_for("admin.del_user",id=u.id) }}>删除</a>#}
+                            <a href={{ url_for("admin.del_blog",id=blog.id) }}>删除</a>
+                            <a href={{ url_for("admin.modify_blog",id=blog.id) }}>46546</a>
                         </td>
 					</tr>
                 {% endfor %}
