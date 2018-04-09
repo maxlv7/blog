@@ -21,7 +21,6 @@ def create_app(config_name):
     app.config.from_object(config[config_name])
     # config[config_name].init_app(app)
     # print(config[config_name].SQLALCHEMY_DATABASE_URL)
-
     # 初始化数据表
     db.init_app(app)
 
