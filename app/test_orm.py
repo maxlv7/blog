@@ -8,7 +8,7 @@ app = Flask(__name__)
 
 app.config.update(
     DEBUG = True,
-    SQLALCHEMY_DATABASE_URI = "mysql://root:root@localhost:3306/dev_blog",
+    SQLALCHEMY_DATABASE_URI = "mysql+pymysql://root:root@localhost:3306/dev_blog",
     SQLALCHEMY_TRACK_MODIFICATIONS = True
 )
 
