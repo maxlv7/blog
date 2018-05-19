@@ -60,5 +60,9 @@ def links():
 def blogs():
 
     blogs = Blog.query.all()
+    print(blogs)
+    print(type(blogs[0]))
+    print(blogs[0].user_name)
+    print(blogs[0].content)
 
     return render_template("blogs.html",blogs=blogs)
